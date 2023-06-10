@@ -1,4 +1,4 @@
-## Fct-search Cluster Provisioning
+## Svodd Cluster Provisioning
 
 1. После того как создали новый сервер, на котором ничего еще нет кроме debian запускаем make site
 
