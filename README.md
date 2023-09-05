@@ -22,3 +22,13 @@ provisioning/roles/docker/tasks/main.yml
 https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/
 
 https://docs.ansible.com/ansible/latest/collections/community/docker/docker_swarm_module.html#ansible-collections-community-docker-docker-swarm-module
+
+После истечения срока действия токена доступа (30-90days) необходимо перевыпустить токен, перейти по ссылке https://github.com/settings/tokens
+```
+A personal access token (classic) "fct-search.deploy.access.token" 
+with delete:packages, repo, workflow, and write:packages scopes 
+was recently regenerated for your account. 
+Visit https://github.com/settings/tokens for more information.
+```
+Далее необходимо запустить команду `make docker-login` и заново авторизироваться в ghcr.io/terratensor — ввести имя пользователя и новый токен.
+Это необходимо для того, чтобы при обновлении docker images во время deploy сервер имел доступ к docker registry репозиторию и мог скачать обновленные packages, иначе обновление не произойдет.
