@@ -41,3 +41,13 @@ https://ubuntuhandbook.org/index.php/2024/03/pip-install-error-ubuntu-2404/
 `ansible-galaxy collection list` ищем в списке community.general
 Если нет, то устанавливаем:
 `ansible-galaxy collection install community.general`
+
+После истечения срока действия токена доступа (30-90days) необходимо перевыпустить токен, перейти по ссылке https://github.com/settings/tokens
+```
+A personal access token (classic) "fct-search.deploy.access.token" 
+with delete:packages, repo, workflow, and write:packages scopes 
+was recently regenerated for your account. 
+Visit https://github.com/settings/tokens for more information.
+```
+Далее необходимо запустить команду `make docker-login` и заново авторизироваться в ghcr.io/terratensor — ввести имя пользователя и новый токен.
+Это необходимо для того, чтобы при обновлении docker images во время deploy сервер имел доступ к docker registry репозиторию и мог скачать обновленные packages, иначе обновление не произойдет.
