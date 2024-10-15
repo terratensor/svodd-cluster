@@ -5,9 +5,10 @@
         - python3-pip
         - virtualenv
         - python3-setuptools
+        - pipx
       state: present
       update_cache: yes
 
 -   name: Install Docker SDK for Python
-    pip:
+    community.general.pipx_info:
       name: docker
