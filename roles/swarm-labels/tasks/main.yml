@@ -1,12 +1,12 @@
 ---
-#- name: Set node labels
-#  docker_node:
-#    hostname: "{{ hostname }}"
-#    labels: "{{ labels }}"
-#    labels_state: replace
-
-- name: Set node labels2
+- name: Set node labels
   docker_node:
-    hostname: "{{ hostname2 }}"
-    labels: "{{ labels2 }}"
+    hostname: "{{ hostname }}"
+    labels: "{{ labels }}"
+    labels_state: replace
+
+- name: Set node labels1
+  docker_node:
+    hostname: "{{ hostname1 }}"
+    labels: "{{ labels1 }}"
     labels_state: replace
