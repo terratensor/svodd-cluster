@@ -27,6 +27,9 @@
           hostname1: "{{ frontend_1_hostname }}"
           labels1:
             worker: frontend-1  
+          hostname2: "{{ worker_2_hostname }}"
+          labels2:
+            worker: worker-2
           # hostname2: "{{ parser_hostname }}"
           # labels2:
           #   parser: parser
