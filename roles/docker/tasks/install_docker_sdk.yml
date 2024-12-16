@@ -10,5 +10,7 @@
       update_cache: yes
 
 -   name: Install Docker SDK for Python
-    community.general.pipx_info:
-      name: docker
+    community.general.pipx_info:    
+      name: 
+        - requests
+        - docker
