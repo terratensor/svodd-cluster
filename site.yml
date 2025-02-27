@@ -30,6 +30,9 @@
           hostname2: "{{ worker_2_hostname }}"
           labels2:
             worker: worker-2
+          hostname3: "{{ monitoring_hostname }}"
+          labels3:
+            worker: monitoring
           # hostname2: "{{ parser_hostname }}"
           # labels2:
           #   parser: parser
