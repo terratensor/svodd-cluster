@@ -9,8 +9,22 @@
       state: present
       update_cache: yes
 
+    when: ansible_facts['os_family'] == "Debian"  # для Debian/Ubuntu
+
+-   name: Установка python3-requests через apt
+    apt:
+      name: python3-requests
+      state: present
+
+-   name: Создание виртуального окружения
+    command: python3 -m venv /opt/docker-sdk-venv
+
+-   name: Установка Docker SDK for Python в виртуальное окружение
+    pip:
+      name: docker
+      executable: /opt/docker-sdk-venv/bin/pip
+
 -   name: Install Docker SDK for Python
     community.general.pipx_info:    
-      name: 
-        - requests
+      name:         
         - docker

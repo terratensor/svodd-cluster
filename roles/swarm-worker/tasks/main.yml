@@ -1,8 +1,11 @@
 ---
--   name: Join to Swarm
-    docker_swarm:
-      advertise_addr: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
-      remote_addrs: [ "{{ hostvars[groups['manager'][0]]['ansible_default_ipv4']['address'] }}:2377" ]
-      join_token: "{{ hostvars[groups['manager'][0]]['worker_join_token'] }}"
-      state: join
+- name: Set Python interpreter to virtual environment
+  set_fact:
+    ansible_python_interpreter: /opt/docker-sdk-venv/bin/python3
 
+- name: Join to Swarm
+  docker_swarm:
+    advertise_addr: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
+    remote_addrs: [ "{{ hostvars[groups['manager'][0]]['ansible_default_ipv4']['address'] }}:2377" ]
+    join_token: "{{ hostvars[groups['manager'][0]]['worker_join_token'] }}"
+    state: join
